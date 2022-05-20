@@ -6,11 +6,13 @@ import router from './routes';
 
 const app = express();
 
+app.use(express.json());
+
 app.use(router);
 
 const port = config.get('port');
 
-app.listen(() => {
+app.listen(port, () => {
     console.log(`App started at http://localhost:${port} 🌍🚀`);
 
     connectToDb();
